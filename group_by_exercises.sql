@@ -41,10 +41,11 @@ GROUP BY last_name;
 'Qiwen','168'*/
 
 -- 7
-SELECT first_name, COUNT(first_name)
+SELECT first_name, gender, COUNT(first_name)
 FROM employees
 WHERE first_name IN ('Irena', 'Vidya', 'Maya')
-GROUP BY first_name;
+GROUP BY first_name, gender
+ORDER BY first_name, gender;
 /*'Vidya','232'
 'Irena','241'
 'Maya','236'*/
