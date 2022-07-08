@@ -39,7 +39,12 @@ WHERE emp_no IN
 FROM employees 
 JOIN dept_manager
 USING(emp_no)
-WHERE dept_manager.emp_no=employees.emp_no AND to_date>CURDATE()) AND gender='F';
+WHERE dept_manager.emp_no=employees.emp_no AND to_date>CURDATE()) AND gender='F'
+/*'Hilary','Kambil'
+'Isamu','Legleitner'
+'Karsten','Sigstam'
+'Leon','DasSarma'*/
+;
 
 -- 5
 -- Find all the employees who currently have a higher salary than the companies overall, historical average salary
