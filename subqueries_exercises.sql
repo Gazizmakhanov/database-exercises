@@ -28,7 +28,9 @@ SELECT COUNT(*)-
 FROM employees
 JOIN titles
 USING(emp_no)
-WHERE to_date>CURDATE());
+WHERE to_date>CURDATE())
+FROM employees;
+-- 59900
 
 -- 4
 -- Find all the current department managers that are female. List their names in a comment in your code.
@@ -58,12 +60,15 @@ FROM salaries)
 AND salaries.to_date>CURDATE();
 
 -- 6
-SELECT COUNT(salary)
+SELECT COUNT(salary)/(SELECT COUNT(salary)
+FROM salaries
+WHERE to_date>CURDATE())*100
 FROM salaries
 WHERE salary>=
 ((SELECT MAX(salary)
 FROM salaries)-(SELECT STD(salary)
-FROM salaries)) AND to_date>CURDATE();
+FROM salaries
+WHERE to_date>CURDATE())) AND to_date>CURDATE();
 
 
 
